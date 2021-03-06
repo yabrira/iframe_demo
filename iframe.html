@@ -3,6 +3,9 @@
 <html lang="en">
   <head>
     <script>
+      const urlParams = new URLSearchParams(window.parent.location.search);
+      const writekey = urlParams.get("writekey");
+
       !(function () {
         var analytics = (window.analytics = window.analytics || []);
         if (!analytics.initialize)
@@ -59,8 +62,7 @@
               analytics._loadOptions = e;
             };
             analytics.SNIPPET_VERSION = "4.13.1";
-            // Insert your Segment write key here
-            analytics.load("your Segment write key here");
+            analytics.load(writekey);
           }
       })();
     </script>
