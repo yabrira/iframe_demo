@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="robots" content="noindex" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script type="text/javascript" src="pageContextConstructor.js"></script>
+    <!--====== Title ======-->
+    <title>Demo page</title>
+  </head>
+
+  <body>
+    <section>
+      <h1>
+        Example website that loads Segment's a.js lib in an iframe and posts
+        events via the .postMessage() method
+      </h1>
+    </section>
+    <section>
+      <!--parent-side event that should trigger event in iframe against Segment's a.js lib-->
+      <button
+        type="button"
+        id="mainp"
+        onclick="let pageContext = getPageContext(); trackerFrame.contentWindow.postMessage(pageContext, '*');"
+      >
+        Trigger page call in iframe
+      </button>
+      <!-- iframe  -->
+      <iframe id="trackerFrame" src="iframe.html" title="iFrame"></iframe>
+    </section>
+  </body>
+</html>
